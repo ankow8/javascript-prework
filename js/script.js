@@ -27,16 +27,18 @@ let playerMove = getMoveName(playerInput);
 
 printMessage('Twój ruch to: ' + playerMove);
 
-let argComputerMove = randomNumber;
-let argPlayerMove = playerInput;
+let argComputerMove = computerMove;
+let argPlayerMove = playerMove;
 
 function displayResult(argComputerMove, argPlayerMove){
   console.log('wywołano displayResult');
   console.log('argumenty: ' + argComputerMove + ', ' + argPlayerMove);
   printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove + '.');
-  if(argComputerMove - argPlayerMove == -1){
+  if(argComputerMove == 'kamień' && argPlayerMove == 'papier'){
     printMessage('Ty wygrywasz!');
-  } else if(argComputerMove - argPlayerMove == 2){
+  } else if(argComputerMove == 'papier' && argPlayerMove == 'nożyce'){
+    printMessage('Ty wygrywasz!');
+  } else if(argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
     printMessage('Ty wygrywasz!');
   } else if(argComputerMove == argPlayerMove){
     printMessage('Remis!');
