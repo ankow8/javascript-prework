@@ -2,11 +2,8 @@ function playGame(playerInput){
 
   clearMessages();
 
-  let randomNumber = Math.floor(Math.random() * 3 + 1);
-
-  console.log('Wylosowana liczba to: ' + randomNumber);
-
-  let computerMove = getMoveName(randomNumber);
+  const computerMove = getMoveName(Math.floor(Math.random() * 3 + 1)),
+        playerMove = getMoveName(playerInput);
 
   function getMoveName(argMoveId){
     if(argMoveId == 1){
@@ -22,22 +19,10 @@ function playGame(playerInput){
   }
 
   printMessage('Mój ruch to: ' + computerMove);
-
-  /*let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');*/
-
-  console.log('Gracz wpisał: ' + playerInput);
-
-  let playerMove = getMoveName(playerInput);
-
   printMessage('Twój ruch to: ' + playerMove);
 
-  let argComputerMove = computerMove;
-  let argPlayerMove = playerMove;
-
   function displayResult(argComputerMove, argPlayerMove){
-    console.log('wywołano displayResult');
-    console.log('argumenty: ' + argComputerMove + ', ' + argPlayerMove);
-    printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove + '.');
+    console.log('Argumenty: ' + argComputerMove + ', ' + argPlayerMove);
     if(argComputerMove == 'kamień' && argPlayerMove == 'papier' || argComputerMove == 'papier' && argPlayerMove == 'nożyce' || argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
       printMessage('Ty wygrywasz!');
     } else if(argComputerMove == argPlayerMove){
@@ -46,7 +31,8 @@ function playGame(playerInput){
       printMessage('Tym razem przegrywasz :(');
   }
 
-  printMessage(displayResult(argComputerMove, argPlayerMove));
+  printMessage('Zagrałem ' + computerMove + ', a Ty ' + playerMove + '.');
+  printMessage(displayResult(computerMove, playerMove));
 }
 
 document.getElementById('play-rock').addEventListener('click', function(){
