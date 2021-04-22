@@ -23,7 +23,7 @@ function playGame(playerInput){
 
   function displayResult(argComputerMove, argPlayerMove){
     console.log('Argumenty: ' + argComputerMove + ', ' + argPlayerMove);
-    if(argComputerMove == 'kamień' && argPlayerMove == 'papier' || argComputerMove == 'papier' && argPlayerMove == 'nożyce' || argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){
+    if(argComputerMove == 'kamień' && argPlayerMove == 'papier' || argComputerMove == 'papier' && argPlayerMove == 'nożyce' || argComputerMove == 'nożyce' && argPlayerMove == 'kamień'){ //kiedy stosowac element logiczny "lub ||" a kiedy "else if"? tresc z"lub ||" jest troche mniejsza isam bym tak wolal, ale sposob z else if wydaje sie tez byc dobry, szczegolnie przy przypadku posiadajacym znacznie wiecej przypadkow.
       printMessage('Ty wygrywasz!');
     } else if(argComputerMove == argPlayerMove){
       printMessage('Remis!');
@@ -32,7 +32,8 @@ function playGame(playerInput){
   }
 
   printMessage('Zagrałem ' + computerMove + ', a Ty ' + playerMove + '.');
-  printMessage(displayResult(computerMove, playerMove));
+  printMessage(displayResult(computerMove, playerMove));  //wyskakuje na końcu komunikatu gry undefined. Skad się to bierze?
+
 }
 
 document.getElementById('play-rock').addEventListener('click', function(){
